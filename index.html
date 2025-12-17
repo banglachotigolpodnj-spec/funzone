@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Join Our Fun Community! 🎉</title>
+  <meta name="description" content="Join our fun Telegram community for daily memes, jokes, games & non-stop entertainment!">
+  
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { 
+      font-family: 'Segoe UI', Arial, sans-serif; 
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4); 
+      color: #333; 
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .container { 
+      max-width: 500px; 
+      width: 100%; 
+      background: white; 
+      border-radius: 20px; 
+      padding: 40px 30px; 
+      text-align: center;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    }
+    h1 { 
+      font-size: 36px; 
+      color: #ff6b6b; 
+      margin-bottom: 16px; 
+    }
+    p { 
+      font-size: 20px; 
+      line-height: 1.6; 
+      margin-bottom: 20px; 
+      color: #555;
+    }
+    .btn { 
+      display: block;
+      width: 80%;
+      max-width: 300px;
+      margin: 30px auto;
+      background: #4ecdc4; 
+      color: white; 
+      padding: 18px 0; 
+      font-size: 28px; 
+      font-weight: bold;
+      border-radius: 50px; 
+      text-decoration: none; 
+      box-shadow: 0 8px 20px rgba(78, 205, 196, 0.3);
+      transition: all 0.3s ease;
+    }
+    .btn:hover, .btn:active { 
+      background: #45b7aa; 
+      transform: translateY(-3px); 
+      box-shadow: 0 12px 25px rgba(78, 205, 196, 0.4);
+    }
+    #timer { 
+      font-size: 32px; 
+      color: #ff4757; 
+      font-weight: bold; 
+      margin: 20px 0;
+      letter-spacing: 2px;
+    }
+    .time-box {
+      display: inline-block;
+      background: #ff4757;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 10px;
+      margin: 0 5px;
+      min-width: 70px;
+    }
+    #members { 
+      font-size: 18px; 
+      color: #2ed573; 
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 480px) {
+      h1 { font-size: 32px; }
+      p { font-size: 18px; }
+      .btn { font-size: 24px; padding: 16px 0; }
+      #timer { font-size: 26px; }
+      .time-box { padding: 8px 12px; min-width: 60px; }
+      .container { padding: 30px 20px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to the Fun Zone! 🎈😂</h1>
+    <p>Join our awesome community for daily memes, jokes, games, and non-stop fun!</p>
+    <p>Over 1,000+ happy members already inside! 🚀</p>
+    
+    <p>Limited Time Offer Ends In:</p>
+    <div id="timer">
+      <span class="time-box" id="days">00</span> :
+      <span class="time-box" id="hours">00</span> :
+      <span class="time-box" id="minutes">00</span> :
+      <span class="time-box" id="seconds">00</span>
+    </div>
+    
+    <a href="https://t.me/purnimalayl" class="btn" target="_blank">Join Now FREE! 🎉</a>
+    
+    <p id="members">Live: 1,247 members online right now!</p>
+  </div>
+
+  <!-- Adsterra Social Bar Code (Paste your real code here) -->
+  <!--
+  <script type="text/javascript">
+    // Your Adsterra Social Bar code
+  </script>
+  -->
+
+  <script>
+    // Set the target date (CHANGE THIS TO YOUR DESIRED DATE & TIME)
+    const targetDate = new Date("December 31, 2025 23:59:59").getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance < 0) {
+        document.getElementById("timer").innerHTML = "Offer Expired! 😢";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("days").innerHTML = days.toString().padStart(2, "0");
+      document.getElementById("hours").innerHTML = hours.toString().padStart(2, "0");
+      document.getElementById("minutes").innerHTML = minutes.toString().padStart(2, "0");
+      document.getElementById("seconds").innerHTML = seconds.toString().padStart(2, "0");
+    }
+
+    // Update immediately and then every second
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // Fake live members counter
+    let members = 1247;
+    const membersElement = document.getElementById('members');
+    setInterval(() => {
+      members += Math.floor(Math.random() * 4) + 1;
+      membersElement.innerHTML = `Live: ${members.toLocaleString()} members online right now!`;
+    }, 6000);
+  </script>
+</body>
+</html>
